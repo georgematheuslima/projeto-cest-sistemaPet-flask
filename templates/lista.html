@@ -1,20 +1,27 @@
 {% extends "template.html" %}
 {% block conteudo %}
 <!-- Como um link -->
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="{{ url_for('cadastrapet') }}">Cadastrar Pet</a>
-</nav><nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Agendamento de banho e tosa</a>
-</nav><nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Clínica Veterinária </a>
-</nav><nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Relatório de cliente</a>
-</nav><nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Estoque</a>
-</nav>
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Vendas</a>
-</nav>
-
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="{{ url_for('cadastrapet') }}">Cadastrar Novo Pet</a>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="{{ url_for('cadastrapet') }}">Pets cadastrados</a>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Agendamento de banho e tosa</a>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Clínica Veterinária </a>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Relatório de cliente</a>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Estoque</a>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Vendas</a>
+  </nav>
+'
 
 {% endblock %}
