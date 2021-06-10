@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="{{ url_for('atualizar') }}" method="post" enctype="multipart/form-data">
+        <figure class="thumb col-md-4">
+            <img class="img-responsive" src="{{ url_for('imagem', nome_arquivo=capa_pet) }}">
+            <figcaption>
+                <label class="fileContainer">
+                    <button type="submit" class="btn btn-primary btn-salvar">Mudar Capa</button>
+                    <input type="file" name="arquivo" accept=".jpg">
+                </label>
+            </figcaption>
+        </figure>
+        <input type="hidden" name="id" value="{{ pet.id }}">
+        <fieldset>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" value="{{ pet.nome }}">
+          </div>
+          <div class="form-group">
+            <label for="raca">Raca</label>
+            <input type="text" id="raca" name="raca" class="form-control" value="{{ pet.raca }}">
+          </div> <div class="form-group">
+            <label for="porte">Porte</label>
+            <input type="text" id="porte" name="porte" class="form-control" value="{{ pet.porte }}">
+          </div>
+          <div class="form-group">
+            <label for="dono">Dono</label>
+            <input type="text" id="dono" name="dono" class="form-control" value="{{ pet.dono }}">
+          </div>
+          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+          <a class="btn btn-danger" href="{{ url_for('cadastrapet') }}">Voltar</a>
+        </fieldset>
+      </form>
+{% endblock %}

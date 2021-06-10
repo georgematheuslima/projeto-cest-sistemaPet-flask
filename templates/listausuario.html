@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<a class="btn btn-success" href="{{ url_for('cadastrousuario') }}">Novo Usuário</a>
+
+    <table class="table table-striped table-responsive table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>login</th>
+                <th>Senha</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.login }}</td>                <td>{{ usuario.senha }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ url_for('editar', id=usuario.id) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ url_for('deletar', id=usuario.id) }}">Deletar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<a class="btn btn-primary" href="{{ url_for('index') }}">Início</a>
+<a class="btn btn-danger" href="{{ url_for('lista') }}">Voltar</a>
+{% endblock %}
