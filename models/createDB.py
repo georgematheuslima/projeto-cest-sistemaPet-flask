@@ -22,21 +22,35 @@ criar_tabelas = '''CREATE DATABASE `petshop` DEFAULT CHARACTER SET utf8 COLLATE 
       `dono` varchar(20) NOT NULL,
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+    
     CREATE TABLE `usuario` (
-      `id` varchar(8) NOT NULL,
+      `id` varchar(20) NOT NULL ,
       `nome` varchar(20) NOT NULL,
+      `login` varchar(20) NOT NULL,
       `senha` varchar(8) NULL,
       PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+    
+    CREATE TABLE `funcionario` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(50) NOT NULL,
+    `cpf` varchar(12) NOT NULL,
+    `nascimento` varchar(10) NOT NULL, 
+    `telefone` varchar(20) NOT NULL,
+    `email` varchar(50) NOT NULL,
+    `cargo` varchar(50) NOT NULL,
+    PRIMARY KEY(`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;'''
+
 
 conn.cursor().execute(criar_tabelas)
 
 cursor = conn.cursor()
 cursor.executemany(
-      'INSERT INTO petshop.usuario (id, nome, senha) VALUES (%s, %s, %s)',
+      'INSERT INTO petshop.usuario (id, nome, senha, login) VALUES (%s, %s, %s, %s)',
       [
-            ('george', 'George Matheus', '123'),
-            ('admin', 'Administrador', 'teste'),
+            ('george', 'George Matheus', '123', 'george'),
+            ('admin', 'Administrador', 'teste', 'admin'),
 
       ])
 

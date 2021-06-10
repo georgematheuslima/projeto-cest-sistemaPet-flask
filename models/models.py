@@ -8,9 +8,20 @@ class Pet:
         self.dono = dono
 
 
-
 class Usuario:
-    def __init__(self, id, nome, senha):
+    def __init__(self, nome, login, senha, id=None):
         self.id = id
         self.nome = nome
+        self.login = login
         self.senha = senha
+
+
+class Funcionario:
+    def __init__(self, nome, cpf, nascimento, telefone, email, cargo, id=None):
+        self.id = id
+        self.nome = nome
+        self.cpf = cpf
+        self.nascimento = nascimento
+        self.telefone = telefone
+        self.email = email
+        self.cargo = cargo

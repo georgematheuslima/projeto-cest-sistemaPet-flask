@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<a class="btn btn-success" href="{{ url_for('novofuncionario') }}">Novo Funcionario</a>
+
+    <table class="table table-striped table-responsive table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nascimento</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Cargo</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for funcionario in funcionarios %}
+            <tr>-
+                <td>{{ funcionario.nome }}</td>
+                <td>{{ funcionario.nascimento }}</td>
+                <td>{{ funcionario.telefone }}</td>
+                <td>{{ funcionario.email }}</td>
+                <td>{{ funcionario.cargo }}</td>
+
+                <td>
+                    <a class="btn btn-info" href="{{ url_for('editar', id=funcionario.id) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ url_for('deletarFuncionario', id=funcionario.id) }}">Deletar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<a class="btn btn-primary" href="{{ url_for('index') }}">Início</a>
+<a class="btn btn-danger" href="{{ url_for('lista') }}">Voltar</a>
+{% endblock %}

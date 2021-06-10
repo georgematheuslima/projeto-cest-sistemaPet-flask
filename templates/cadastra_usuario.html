@@ -1,0 +1,57 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <form class="form-horizontal" action="{{ url_for('criarusuario') }}" method="post" enctype="multipart/form-data">
+        <fieldset>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Cadastro de Funcionário</div>
+        <div class="form-group">
+        <div class="col-md-11 control-label">
+                <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
+        </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="Nome">Nome<h11>*</h11></label>
+          <div class="col-md-8">
+          <input id="nome" name="nome" placeholder="" class="form-control" required="" type="text">
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="Nome">Login<h11>*</h11></label>
+          <div class="col-md-2">
+          <input id="id" name="id" placeholder="Login" class="form-control" required="" type="text">
+          </div>
+
+          <label class="col-md-1 control-label" for="Nome">Senha<h11>*</h11></label>
+          <div class="col-md-2">
+          <input id="senha" name="senha" placeholder="10 caracteres" class="form-control" type="password"
+                 required maxlength="10" >
+          </div>
+
+          <label class="col-md-1 control-label" for="Nome">Confirma Senha<h11>*</h11></label>
+          <div class="col-md-2">
+          <input id="confirmasenha" name="confirmasenha" placeholder="confirmar senha" class="form-control" required
+                 type="password" maxlength="10" >
+          </div>
+        </div>
+
+
+          <button type="submit" class="btn btn-success btn-salvar">Salvar</button>
+          <a class="btn btn-danger" href="{{ url_for('lista') }}">Voltar</a>
+        </div>
+        </fieldset>
+    </form>
+
+
+{% endblock %}
+
