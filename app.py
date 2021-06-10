@@ -4,7 +4,6 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 app.secret_key = 'projeto_cest'
 app.config.from_pyfile('config.py')
-
 db = MySQL(app)
 
 from views import *

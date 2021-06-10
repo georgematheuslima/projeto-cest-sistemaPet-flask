@@ -21,6 +21,17 @@ def login():
     return render_template('login.html', proxima=proxima)
 
 
+
+@app.route('/logout')
+def logout():
+    session['usuario_logado'] = None
+    flash('Nenhum usuário logado!')
+    return redirect(url_for('index'))
+
+
+# ================================ AUTENTICAÇÃO =========================
+
+
 @app.route('/autenticar', methods=['POST', ])
 def autenticar():
     usuario = usuario_dao.busca_por_id(request.form['usuario'])
@@ -30,16 +41,13 @@ def autenticar():
             flash(message=usuario.nome + " logado com sucesso!")
             proxima_pagina = request.form['proxima']
             return redirect(proxima_pagina)
+        elif usuario.senha != request.form['senha']:
+            flash(message=usuario.nome + " senha incorreta, tente novamente.")
+            return redirect(url_for('login'))
     else:
         flash(message="Não Logado. Por favor, verifique suas credenciais ou entre em contato com o suporte.")
         return redirect(url_for('login'))
 
-
-@app.route('/logout')
-def logout():
-    session['usuario_logado'] = None
-    flash('Nenhum usuário logado!')
-    return redirect(url_for('index'))
 
 
 # ================================ PET ===================================
